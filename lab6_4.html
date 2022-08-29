@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <script>
+        let student = [
+            {
+                fullname: 'นายตั้งใจ เรียนมาก',
+                age: 18,
+                year: 1,
+                gpa: 3.40,
+                help: true
+            },
+            {
+                fullname: 'นายส่งงาน ตลอดมา',
+                age: 19,
+                year: 2,
+                gpa: 3.00,
+                help: false
+            },
+            {
+                fullname: 'นางสาวใส่ใจ ดีงาม',
+                age: 20,
+                year: 3,
+                gpa: 2.90,
+                help: true
+            },
+            {
+                fullname: 'นายกฤษฏ์ อำนวย',
+                age: 18,
+                year: 1,
+                gpa: 3.50,
+                help: true
+            },
+            {
+                fullname: 'นางสาวมีนา มานี',
+                age: 18,
+                year: 1,
+                gpa: 3.25,
+                help: false
+            }
+        ]
+        let d = new Date()
+        date = d.getFullYear()+543
+        let scholarship =[]
+        let grade=[]
+        let h=[]
+        for(i=0;i<student.length;i++){
+            if(student[i].gpa>3.20){
+                scholarship[i]="ได้ทุนการศึกษา"
+                grade[i]="เกรดเฉลี่ยถึงเกณฑ์"
+                if(student[i].help==true){
+                    h[i]="และยังช่วยงานภาควิชาด้วย"
+                }else{
+                    h[i]="และยังไม่ได้ช่วยงานภาควิชาด้วย"
+                }
+            }
+            else if(student[i].year>=2&&student[i].help&&student[i].gpa>2.75){
+                scholarship[i]="ได้ทุนการศึกษา"
+                grade[i]="เกรดเฉลี่ยถึงเกณฑ์"
+                if(student[i].help==true){
+                    h[i]="และยังช่วยงานภาควิชาด้วย"
+                }else{
+                    h[i]="และยังไม่ได้ช่วยงานภาควิชาด้วย"
+                }
+            }
+            else{
+                scholarship[i]="ไม่ได้ทุนการศึกษา"
+                grade[i]="เกรดเฉลี่ยไม่ถึงเกณฑ์"
+                if(student[i].help==true){
+                    h[i]="และยังช่วยงานภาควิชาด้วย"
+                }else{
+                    h[i]="และยังไม่ได้ช่วยงานภาควิชาด้วย"
+                }
+            }
+            console.log(student[i].fullname+" เกิดเมื่อปี "+(date-student[i].age)+" "+scholarship[i]+" เนื่องจาก "+grade[i]+h[i])
+        }
+        
+        for(i=0;i<3;i++){
+            console.log("ชั้นปีที่ "+(i+1))
+            for(j=0;j<student.length;j++){
+                check=0
+                if(student[i].year==i+1){
+                    if(student[i].gpa>3.20){
+                        console.log(student[i].fullname+" เนื่องจาก"+grade[i]+h[i])
+                        check=1;
+                    }
+                    else if(student[i].year>=2&&student[i].help&&student[i].gpa>2.75){
+                        console.log(student[i].fullname+" เนื่องจาก"+grade[i]+h[i])
+                        check=1;
+                    }
+                }
+                if(j==student.length-1&&check==0){
+                    console.log("ไม่มี")
+                }
+            }
+        }
+    </script>
+    </body>
+</html>
